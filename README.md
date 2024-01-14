@@ -8,6 +8,20 @@ Basic server with Python, Flask and PostgreSQL with SQLalchemy ORM. This reposit
 pip install -r requirements.txt
 ```
 
+## Run server
+
+Server listen default on `http://localhost:5000/`
+
+```
+python main.py
+```
+
+or
+
+```
+flask --app main --debug run -h localhost -p 5000
+```
+
 ## Team
 
 Developed by Diego Cortés
