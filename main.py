@@ -20,6 +20,7 @@ def get_authors():
                 'id': author.id,
                 'name': author.name,
                 'age': author.age,
+                'created_at': author.created_at,
                 'books': []
             }
             for book in author.books:
@@ -28,7 +29,7 @@ def get_authors():
                     'isbn': book.isbn,
                     'name': book.name,
                     'cant_pages': book.cant_pages,
-                    'createdAt': book.created_at
+                    'created_at': book.created_at
                 }
                 author_data['books'].append(book_data)
             authors_data.append(author_data)
@@ -48,7 +49,7 @@ def add_author():
         new_author = Author(name=name, age=age)
         db.session.add(new_author)
         db.session.commit()
-        return jsonify({'author': {'id': new_author.id, 'name': new_author.name, 'age': new_author.age}}), 201
+        return jsonify({'author': {'id': new_author.id, 'name': new_author.name, 'age': new_author.age, 'created_at': new_author.created_at}}), 201
     except Exception as error:
         print('Error', error)
         return jsonify({'message': 'Internal server error'}), 500
@@ -63,6 +64,7 @@ def get_books():
                 'id': book.id,
                 'isbn': book.isbn,
                 'name': book.name,
+                'created_at': book.created_at,
                 'cant_pages': book.cant_pages
             }
             books_data.append(book_data)
@@ -84,7 +86,7 @@ def add_book():
         new_book = Book(isbn=isbn, name=name, cant_pages=cant_pages, author_id=author_id)
         db.session.add(new_book)
         db.session.commit()
-        return jsonify({'book': {'id': new_book.id, 'isbn': new_book.isbn, 'name': new_book.name, 'cant_pages': new_book.cant_pages}}), 201
+        return jsonify({'book': {'id': new_book.id, 'isbn': new_book.isbn, 'name': new_book.name, 'cant_pages': new_book.cant_pages, 'created_at': new_book.created_at}}), 201
     except Exception as error:
         print('Error', error)
         return jsonify({'message': 'Internal server error'}), 500
