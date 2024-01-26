@@ -4,7 +4,7 @@ Basic server with Python, Flask and PostgreSQL with SQLalchemy ORM. This reposit
 
 ## Install
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -12,13 +12,13 @@ pip install -r requirements.txt
 
 Server listen default on `http://localhost:5000/`
 
-```
+```bash
 python main.py
 ```
 
 or
 
-```
+```bash
 flask --app main --debug run -h localhost -p 5000
 ```
 
