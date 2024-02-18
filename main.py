@@ -80,7 +80,7 @@ def add_book():
         isbn = data.get('isbn')
         name = data.get('name')
         cant_pages = data.get('cant_pages')
-        author_id = data.get('author')
+        author_id = data.get('author_id')
         if not name or not cant_pages or not author_id or not isbn:
             return jsonify({'message': 'Bad request, isbn or name or cantPages or author not found'}), 400
         new_book = Book(isbn=isbn, name=name, cant_pages=cant_pages, author_id=author_id)
